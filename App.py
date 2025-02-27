@@ -10,5 +10,5 @@ image = Image.open('Int.png')
 
 
 
-texto = st.text('Escribe algo', 'Este es mi texto')
+texto = st.text_input('Escribe algo', 'Este es mi texto')
 st.write('El texto escrito es', texto)
