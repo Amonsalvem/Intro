@@ -5,7 +5,7 @@ st.title("myapp")
 
 st.header("En este espacio comienzo a desarrollar mis apllicaciones para interfaces multimodales.")
 st.write("Facilmente puedo realizar backend y frontend.")
-image = Image.open('int.png')
+image = Image.open('Int.png')
 
 
 
