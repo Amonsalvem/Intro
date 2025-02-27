@@ -6,7 +6,7 @@ st.title("myapp")
 st.header("En este espacio comienzo a desarrollar mis apllicaciones para interfaces multimodales.")
 st.write("Facilmente puedo realizar backend y frontend.")
 image = Image.open('Int.png')
-
+st.image(image)
 
 
 
@@ -30,3 +30,4 @@ with col2:
     st.write('La audición es fundamental para tu interfaz')
   if modo == 'Táctil':
     st.write('El tacto es fundamental para tu interfaz')
+    
