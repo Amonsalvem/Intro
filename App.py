@@ -56,7 +56,7 @@ with st.sidebar:
   mod_radio = st.radio(
       "Escoge la modadlidad de usar",
       ("Visual", "Auditiva", "Háptica")
-
+  )
 
 
 
