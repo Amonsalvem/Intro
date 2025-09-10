@@ -3,7 +3,7 @@ from PIL import Image
 
 st.title("myapp")
 
-st.header("En este espacio comienzo a desarrollar mis apllicaciones para interfaces multimodales.")
+st.header("En este espacio comienzo a desarrollar mis aplicaciones para interfaces multimodales.")
 st.write("Facilmente puedo realizar backend y frontend.")
 image = Image.open('Int.png')
 st.image(image)
@@ -23,7 +23,7 @@ with col1:
     st.write('Correcto!')
 with col2:
   st.subheader("Esta es la segunda columna")
-  modo = st.radio("Que modalidad es la principaL en tu interfaz", ('Visual', 'auditiva', 'Táctil'))
+  modo = st.radio("Qué modalidad es la principal en tu interfaz", ('Visual', 'auditiva', 'Táctil'))
   if modo == 'Visual':
     st.write('La vista es fundamental para tu interfaz')
   if modo == 'auditiva':
