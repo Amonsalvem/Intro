@@ -1,62 +1,96 @@
 import streamlit as st
 from PIL import Image
 
-st.title("myapp")
+# =========================
+# CONFIGURACIÓN DE LA APP
+# =========================
+st.set_page_config(
+    page_title="MyApp - Interfaces Multimodales",
+    page_icon="✨",
+    layout="wide"
+)
 
-st.header("En este espacio comienzo a desarrollar mis aplicaciones para interfaces multimodales.")
-st.write("Facilmente puedo realizar backend y frontend.")
-image = Image.open('Int.png')
-st.image(image)
+# =========================
+# PORTADA
+# =========================
+st.title("🌐 MyApp")
+st.header("Espacio para desarrollar aplicaciones de interfaces multimodales")
+st.write("Aquí combino **backend** y **frontend** fácilmente con Streamlit.")
 
+# Mostrar imagen de portada
+try:
+    image = Image.open("Int.png")
+    st.image(image, caption="Ejemplo de interfaz multimodal", use_column_width=True)
+except FileNotFoundError:
+    st.warning("⚠️ No se encontró la imagen `Int.png`. Asegúrate de subirla al mismo directorio.")
 
+# =========================
+# INPUT DE TEXTO
+# =========================
+st.subheader("✍️ Entrada de texto")
+texto = st.text_input("Escribe algo:", "Este es mi texto")
+st.write(f"El texto escrito es: **{texto}**")
 
-texto = st.text_input('Escribe algo', 'Este es mi texto')
-st.write('El texto escrito es', texto)
-
+# =========================
+# COLUMNAS PARA MODALIDADES
+# =========================
+st.subheader("🔀 Columnas con opciones")
 
 col1, col2 = st.columns(2)
+
 with col1:
-  st.subheader("Esta es la primera columna")
-  st.write("Las interfaces multimodales mejoran la experiencia de usuario")
-  resp = st.checkbox('Estoy de acuerdo')
-  if resp:
-    st.write('Correcto!')
+    st.markdown("### Primera columna")
+    st.write("Las interfaces multimodales mejoran la experiencia de usuario.")
+    if st.checkbox("Estoy de acuerdo"):
+        st.success("✅ ¡Correcto!")
+
 with col2:
-  st.subheader("Esta es la segunda columna")
-  modo = st.radio("Qué modalidad es la principal en tu interfaz", ('Visual', 'auditiva', 'Táctil'))
-  if modo == 'Visual':
-    st.write('La vista es fundamental para tu interfaz')
-  if modo == 'auditiva':
-    st.write('La audición es fundamental para tu interfaz')
-  if modo == 'Táctil':
-    st.write('El tacto es fundamental para tu interfaz')
-    
-st.subheader("Uso de Botones")
-if st.button('Presiona el botón'):
-  st.write('Gracias por presionar')
+    st.markdown("### Segunda columna")
+    modo = st.radio(
+        "¿Qué modalidad es la principal en tu interfaz?",
+        ("Visual", "Auditiva", "Háptica")
+    )
+    if modo == "Visual":
+        st.info("👀 La vista es fundamental para tu interfaz.")
+    elif modo == "Auditiva":
+        st.info("👂 La audición es fundamental para tu interfaz.")
+    elif modo == "Háptica":
+        st.info("✋ El tacto es fundamental para tu interfaz.")
+
+# =========================
+# BOTONES
+# =========================
+st.subheader("🔘 Uso de botones")
+if st.button("Presiona el botón"):
+    st.success("Gracias por presionar 🙌")
 else:
-  st.write('no has presionado aún')
+    st.write("Aún no has presionado el botón.")
 
-st.subheader("Selectbox")
+# =========================
+# SELECTBOX
+# =========================
+st.subheader("🎛️ Selectbox de modalidades")
 in_mod = st.selectbox(
-  "selecciona la modalidad",
-  ("Audio", "Visual", "Háptico"),
+    "Selecciona la modalidad:",
+    ("Audio", "Visual", "Háptico")
 )
+
 if in_mod == "Audio":
-  set_mod = "Reproducir audio"
+    set_mod = "🔊 Reproducir audio"
 elif in_mod == "Visual":
-  set_mod = "Reproducir video"
+    set_mod = "🎥 Reproducir video"
 elif in_mod == "Háptico":
-  set_mod = "Activar vibración"
-st.write("La acción es: " ,set_mod)
+    set_mod = "📳 Activar vibración"
 
+st.write(f"La acción seleccionada es: **{set_mod}**")
 
+# =========================
+# SIDEBAR
+# =========================
 with st.sidebar:
-  st.subeheader("Configura la modalidad")
-  mod_radio = st.radio(
-      "Escoge la modadlidad de usar",
-      ("Visual", "Auditiva", "Háptica")
-  )
-
-
-
+    st.subheader("⚙️ Configuración de la modalidad")
+    mod_radio = st.radio(
+        "Escoge la modalidad a usar:",
+        ("Visual", "Auditiva", "Háptica")
+    )
+    st.write(f"🔧 Modalidad configurada: **{mod_radio}**")
