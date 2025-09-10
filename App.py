@@ -20,7 +20,7 @@ st.write("Aquí combino **backend** y **frontend** fácilmente con Streamlit.")
 # Mostrar imagen de portada
 try:
     image = Image.open("Int.png")
-    st.image(image, caption="Ejemplo de interfaz multimodal", use_column_width=True)
+    st.image(image, caption="Ejemplo de interfaz multimodal", use_container_width=True)
 except FileNotFoundError:
     st.warning("⚠️ No se encontró la imagen `Int.png`. Asegúrate de subirla al mismo directorio.")
 
